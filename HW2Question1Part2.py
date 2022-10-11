@@ -50,10 +50,8 @@ while len(urls) > 0 and len(contain_charges) < maxNumUrl:
         childText = tag.get_text()
         o_childurl = childUrl
         childUrl = urllib.parse.urljoin(seed_url, childUrl)
-        print("seed_url=" + seed_url)
-        print("original childurl=" + o_childurl)
         print("childurl=" + childUrl)
-        print("seed_url in childUrl=" + str(seed_url in childUrl))
+        print("match_url in childUrl=" + str(match_url in childUrl))
         print("Have we seen this childUrl=" + str(childUrl in seen))
         if match_url in childUrl and childUrl not in seen:
             print("***urls.append and seen.append***")
