@@ -4,10 +4,15 @@
 **This is the description of the code files**
 
 - Webcrawler.py
+
 This code file is the webcrawler code example that we covered in class.
+
 Author: Kriste Krstovski
 
 - HW2Question1Part1.py
+
+Author: Kaixin Zhang
+
 This code file is the webcrawler code file that I created for Question 1 Part1.
 
 It crawls pages whose seed url is the press releases page of the Federal Reserve System:
@@ -15,6 +20,9 @@ https://www.federalreserve.gov/newsevents/pressreleases.htm and collect pages th
 word “covid” found within the page. It collected 10 such urls.
 
 - HW2Question1Part2.py
+
+Author: Kaixin Zhang
+
 This code file is the webcrawler code file that I created for Question 1 Part2.
 
 It crawls pages whose seed url is the press releases page of the Securities and Exchange Commission:
