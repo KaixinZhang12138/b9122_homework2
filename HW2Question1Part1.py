@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import urllib.request
-#from urllib.request import Request
+
 
 seed_url = "https://www.federalreserve.gov/newsevents/pressreleases.htm"
 match_url = "https://www.federalreserve.gov/newsevents/pressreleases"
@@ -10,7 +10,7 @@ seen = [seed_url]    #stack of urls seen so far
 contain_covid = []
 opened = []          #we keep track of seen urls so that we don't revisit them
 
-maxNumUrl = 10; #set the maximum number of urls to visit
+maxNumUrl = 10; #set the maximum number of urls we want to output
 print("Starting with url="+str(urls))
 while len(urls) > 0 and len(contain_covid) < maxNumUrl:
     # DEQUEUE A URL FROM urls AND TRY TO OPEN AND READ IT
@@ -32,8 +32,6 @@ while len(urls) > 0 and len(contain_covid) < maxNumUrl:
     soup = BeautifulSoup(webpage)  #creates object soup
     # Put child URLs into the stack
 
-    print("***Check whether contain covid ***")
-
     if word in soup.get_text().lower():
         print("word found in " + curr_url)
         contain_covid.append(curr_url)
@@ -43,19 +41,11 @@ while len(urls) > 0 and len(contain_covid) < maxNumUrl:
         childUrl = tag['href'] #extract just the link
         o_childurl = childUrl
         childUrl = urllib.parse.urljoin(seed_url, childUrl)
-        print("seed_url=" + seed_url)
-        print("original childurl=" + o_childurl)
-        print("childurl=" + childUrl)
-        print("seed_url in childUrl=" + str(seed_url in childUrl))
-        print("Have we seen this childUrl=" + str(childUrl in seen))
+
         if match_url in childUrl and childUrl not in seen:
-            print("***urls.append and seen.append***")
             urls.append(childUrl)
             seen.append(childUrl)
 
-
-        else:
-            print("######")
 
 print("num. of URLs seen = %d, and scanned = %d" % (len(seen), len(opened)))
 print("num. of URLs output contained covid = %d" % (len(contain_covid)))
