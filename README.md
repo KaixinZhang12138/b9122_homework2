@@ -1,7 +1,7 @@
 # b9122_homework2
 ## Computing for business Homework 2
 ### Author: Kaixin Zhang
-**This is the description of the code files
+**This is the description of the code files**
 
 - Webcrawler.py
 This code file is the webcrawler code example that we covered in class.
